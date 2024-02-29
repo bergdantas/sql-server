@@ -1,8 +1,8 @@
 --crio a base de dados
-CREATE DATABASE aula1
+CREATE DATABASE escola
 	
 --seleciono a base de dados
-USE aula1
+USE escola
 
 --crio as tabelas que vão compor a base de dados
 CREATE TABLE pessoa(
@@ -36,10 +36,27 @@ CREATE TABLE estuda (
 	id_curso INT NOT NULL FOREIGN KEY(id_curso) REFERENCES curso(id),
 )
 
+--adiciono um atributo
+ALTER TABLE pessoa
+	ADD sexo CHAR(1) NOT NULL;
 
---apago uma tabela da base de dados
-DROP TABLE estuda;
+--removo um atributo
+ALTER TABLE pessoa
+	DROP COLUMN rg;
+
+--"edito" um atributo
+ALTER TABLE pessoa
+	DROP COLUMN sexo 
+ALTER TABLE pessoa
+	ADD sexo CHAR(1) NOT NULL
+
+--apago tabelas da base de dados
+DROP TABLE estuda
+DROP TABLE endereco
+DROP TABLE telefone
+DROP TABLE pessoa
+DROP TABLE curso
 
 --apago a base de dados
 USE master
-DROP DATABASE aula1
+DROP DATABASE escola;
