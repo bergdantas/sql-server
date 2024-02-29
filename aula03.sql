@@ -1,20 +1,15 @@
---crio a base de dados novamente
-CREATE DATABASE escola
-
---seleciono a base de dados
-USE escola
-
---crio a tabela pessoa
-CREATE TABLE pessoa(
-	id INT NOT NULL PRIMARY KEY,
-	nome VARCHAR(50) NOT NULL,
-	dataDeNascimento DATE NOT NULL,
-	cpf CHAR(11) NOT NULL,
-	sexo CHAR(1) NOT NULL
-)
+--se a base de dados existir, irei selecioná-la
+IF EXISTS(SELECT name FROM sys.databases WHERE name='escola')
+	BEGIN
+		USE escola;
+	END
+ELSE
+	BEGIN
+		PRINT 'A base de dados não foi encontrada';
+	END;
 
 --crio 100 registros para a base de dados pessoa
-INSERT INTO PESSOA(id, nome, dataDeNascimento, cpf, sexo) VALUES
+INSERT INTO pessoa(id, nome, dataDeNascimento, cpf, sexo) VALUES
 (1, 'Josefina de Albuquerque', '1920-05-06', '98652354785', 'F'),
 (2, 'Antônio Silva', '1985-03-15', '12345678901', 'M'),
 (3, 'Maria da Conceição', '1972-09-20', '98765432109', 'F'),
@@ -116,15 +111,3 @@ INSERT INTO PESSOA(id, nome, dataDeNascimento, cpf, sexo) VALUES
 (99, 'Valeria Oliveira', '1993-11-29', '98765432109', 'F'),
 (100, 'Cecília Rodrigues', '1972-04-16', '76543210987', 'F');
 
---adiciono um atributo
-ALTER TABLE pessoa
-	ADD estadoCivil CHAR(1);
-
---modifico o nome da pessoa cujo id é 74
-UPDATE pessoa
-	SET nome='Beatriz Fernandes'
-	WHERE ID=74
-
---modifico o estado civil de todas as pessoas
-UPDATE pessoa
-	SET estadoCivil='C'
