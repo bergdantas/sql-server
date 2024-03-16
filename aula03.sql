@@ -110,4 +110,3 @@ INSERT INTO pessoa(id, nome, dataDeNascimento, cpf, sexo) VALUES
 (98, 'Mateus Costa', '1975-12-07', '54321098765', 'M'),
 (99, 'Valeria Oliveira', '1993-11-29', '98765432109', 'F'),
 (100, 'Cecília Rodrigues', '1972-04-16', '76543210987', 'F');
-
