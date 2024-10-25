@@ -11,11 +11,11 @@ ELSE
 --edito um registro de pessoa (o nome de Isabela Santos será alterado para Isabela Ferreira)
 UPDATE pessoa
 	SET nome='Isabela Ferreira'
-	WHERE cpf=56789012345
+	WHERE cpf=56789012345;
 
 --apago um registro de pessoa (apagarei o registro de Isabela passando o cpf)
 DELETE pessoa
-	WHERE cpf=56789012345
+	WHERE cpf=56789012345;
 
 
 
